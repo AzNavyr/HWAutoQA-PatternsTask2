@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.testmode.test.AuthTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-08-02T20:00:16" hostname="DESKTOP-Q1JA3D0" time="8.962">
+  <properties/>
+  <testcase name="Should get error message if login with not registered user" classname="ru.netology.testmode.test.AuthTest" time="5.737"/>
+  <testcase name="Should get error message if login with blocked registered user" classname="ru.netology.testmode.test.AuthTest" time="1.285"/>
+  <testcase name="Should successfully login with active registered user" classname="ru.netology.testmode.test.AuthTest" time="0.628"/>
+  <testcase name="Should get error message if login with wrong password" classname="ru.netology.testmode.test.AuthTest" time="0.622"/>
+  <testcase name="Should get error message if login with wrong login" classname="ru.netology.testmode.test.AuthTest" time="0.688"/>
+  <system-out><![CDATA[Request method:	POST
+Request URI:	http://localhost:9999/api/system/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "login": "Elliot",
+    "password": "ziw3ffbovtss",
+    "status": "blocked"
+}
+Request method:	POST
+Request URI:	http://localhost:9999/api/system/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "login": "Rodger",
+    "password": "2u4dgkrwjeigt0",
+    "status": "active"
+}
+Request method:	POST
+Request URI:	http://localhost:9999/api/system/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "login": "Jerald",
+    "password": "j36wez3a31",
+    "status": "active"
+}
+Request method:	POST
+Request URI:	http://localhost:9999/api/system/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "login": "Ashlea",
+    "password": "694ikaamb89t",
+    "status": "active"
+}
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+1659470418345	geckodriver	INFO	Listening on 127.0.0.1:15460
+1659470418578	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\User\\AppData\\Local\\Temp\\rust_mozprofileTgLeBT"
+1659470418901	Marionette	INFO	Marionette enabled
+1659470418906	Marionette	INFO	Listening on port 56099
+Read port: 56099
+1659470419154	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\User\\AppData\\Local\\Temp\\rust_mozprofileTgLeBT\\search.json.mozlz4", (void 0)))
+авг. 02, 2022 11:00:20 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:9999"
+]]></system-err>
+</testsuite>
