@@ -6,6 +6,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import lombok.Value;
+import com.google.gson.Gson;
 import lombok.val;
 
 import java.util.Locale;
@@ -21,6 +22,7 @@ public class DataGenerator {
             .log(LogDetail.ALL)
             .build();
     private static final Faker faker = new Faker(new Locale("en"));
+    static Gson gson = new Gson();
 
     private DataGenerator() {
     }
@@ -28,7 +30,7 @@ public class DataGenerator {
     private static void sendRequest(RegistrationDto user) {
              given() // "дано"
                 .spec(requestSpec) // указываем, какую спецификацию используем
-                .body(user) // передаём в теле объект, который будет преобразован в JSON
+                .body(gson.toJson(user)) // передаём в теле объект, который будет преобразован в JSON
                 .when() // "когда"
                 .post("/api/system/users")
                 .then()
@@ -36,15 +38,11 @@ public class DataGenerator {
     }
 
     public static String getRandomLogin() {
-        // TODO: добавить логику для объявления переменной login и задания её значения, для генерации
-        //  случайного логина используйте faker
         String login = faker.name().firstName();
         return login;
     }
 
     public static String getRandomPassword() {
-        // TODO: добавить логику для объявления переменной password и задания её значения, для генерации
-        //  случайного пароля используйте faker
         String password = faker.internet().password();
         return password;
     }
@@ -54,14 +52,11 @@ public class DataGenerator {
         }
 
         public static RegistrationDto getUser(String status) {
-            // TODO: создать пользователя user используя методы getRandomLogin(), getRandomPassword() и параметр status
             RegistrationDto user = new  RegistrationDto( getRandomLogin(), getRandomPassword(), status);
             return user;
         }
 
         public static RegistrationDto getRegisteredUser(String status) {
-            // TODO: объявить переменную registeredUser и присвоить ей значение возвращённое getUser(status).
-            // Послать запрос на регистрацию пользователя с помощью вызова sendRequest(registeredUser)
             RegistrationDto registeredUser = getUser(status);
             sendRequest(registeredUser);
             return registeredUser;
